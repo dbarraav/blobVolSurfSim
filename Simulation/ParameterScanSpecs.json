@@ -1,0 +1,59 @@
+{
+    "version":"4.2.3",
+    "parameter_list":{
+        "JMM":{
+            "values": [20]
+        }, 
+        "JMC":{
+            "values": [20]
+        },
+        "JCC":{
+            "code":"np.array([20])"
+        },
+        "lambdaV":{
+            "code":"np.array([1])"
+        },
+        "lambdaSA":{
+            "code":"np.array([1])"
+        },
+        "targetV":{
+            "values": [50]
+        },        
+        "targetSA":{
+            "values": [150]
+        },
+        "totalSimTime":{
+            "values": [50]
+        },
+        "xDim":{
+            "values": [300]
+        },
+        "yDim":{
+            "values": [100]
+        },
+        "zDim":{
+            "values": [100]
+        },
+        "numProcess":{
+            "values": [4]
+        },    
+        "center_x":{
+            "values": [50]
+        },
+        "center_y":{
+            "values": [50]
+        },
+        "center_z":{
+            "values": [50]
+        },   
+        "cellRadius":{
+            "values": [35]
+        },
+        "cellWidth":{
+            "values": [5]
+        },
+        "overallFreq": {
+            "values": [1]
+        }
+    }
+}

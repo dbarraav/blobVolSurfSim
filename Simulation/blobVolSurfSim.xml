@@ -1,0 +1,62 @@
+<CompuCell3D Revision="20200821" Version="4.2.3">
+   <Potts>
+      
+      <!-- Basic properties of CPM (GGH) algorithm -->
+      <Dimensions x="{{xDim}}" y="{{yDim}}" z="{{zDim}}"/>
+      <Steps>5000</Steps>
+      <Temperature>20.0</Temperature>
+      <NeighborOrder>2</NeighborOrder>
+      <Boundary_y>Periodic</Boundary_y>
+      <Boundary_z>Periodic</Boundary_z>
+      <NumberOfProcessors>{{numProcess}}</NumberOfProcessors>
+      <DebugOutputFrequency>200</DebugOutputFrequency>
+      <!-- 200 px = 600 um, 1 px  = 3 um. Each cell is 15 micron-->
+      
+   </Potts>
+   
+   <Plugin Name="MomentOfInertia"/>
+
+   <Plugin Name="CellType">
+      
+      <!-- Listing all cell types in the simulation -->
+      <CellType TypeId="0" TypeName="Medium"/>
+      <CellType TypeId="1" TypeName="cell"/>
+      <!-- <CellType TypeId="2" TypeName="cell_front"/> -->
+   </Plugin>
+   
+   <Plugin Name="Volume">
+      <!-- <VolumeEnergyParameters CellType="cell" LambdaVolume="{{lambdaV}}" TargetVolume="{{targetV}}"/> -->
+      <!-- this was 1 -->
+   </Plugin>
+    
+    <Plugin Name="Surface">
+    <!-- <SurfaceEnergyParameters CellType="cell" LambdaSurface="{{lambdaSA}}" TargetSurface="{{targetSA}}"/> -->
+    </Plugin>
+   
+   <Plugin Name="CenterOfMass"></Plugin>
+   
+   <Plugin Name="PixelTracker"> </Plugin>
+
+   <Plugin Name="Contact">
+        <Energy Type1="Medium" Type2="Medium">{{JMM}}</Energy>
+        <Energy Type1="Medium" Type2="cell">{{JMC}}</Energy>
+        <Energy Type1="cell" Type2="cell">{{JCC}}</Energy>
+      <NeighborOrder>2</NeighborOrder>
+   </Plugin>
+   
+   <Plugin Name="NeighborTracker">
+      <!-- Module tracking neighboring cells of each cell -->
+   </Plugin>
+
+<Steppable Type="BlobInitializer">
+   <!-- Initial layout of cells in the form of spherical (circular in 2D) blob -->
+   <Region>
+      <Center x="{{center_x}}" y="{{center_y}}" z="{{center_z}}"/>
+      <Radius>{{cellRadius}}</Radius>
+      <Gap>0</Gap>
+      <Width>{{cellWidth}}</Width>
+      <Types>cell</Types>
+   </Region>
+</Steppable>
+   
+</CompuCell3D>

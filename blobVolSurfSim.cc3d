@@ -1,0 +1,6 @@
+<Simulation version="4.2.5">
+   <XMLScript Type="XMLScript">Simulation/blobVolSurfSim.xml</XMLScript>
+   <PythonScript Type="PythonScript">Simulation/blobVolSurfSim.py</PythonScript>
+   <Resource Type="Python">Simulation/blobVolSurfSim_Steppables.py</Resource>
+   <ParameterScan Type="ParameterScan">Simulation/ParameterScanSpecs.json</ParameterScan>
+</Simulation>
